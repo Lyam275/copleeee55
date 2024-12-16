@@ -1,0 +1,18 @@
+
+workflows:
+  android-workflow:
+    name: Android Build Workflow
+    max_build_duration: 60
+    environment:
+      vars:
+        JAVA_VERSION: 11
+        ANDROID_VERSION: 31
+    scripts:
+      - echo "Starting Android build..."
+      - ./gradlew assembleDebug
+    artifacts:
+      - app/build/outputs/**/*.apk
+    publishing:
+      email:
+        recipients:
+          - ton-email@example.com
